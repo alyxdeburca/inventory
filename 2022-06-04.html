@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <style>
+      /* default styling. Nothing to do with freexing first row and column */
+      main {display: flex;}
+      main > * {border: 1px solid;}
+      table {border-collapse: collapse; font-family: helvetica}
+      td, th {border:  1px solid;
+            padding: 10px;
+            min-width: 200px;
+            background: white;
+            box-sizing: border-box;
+            text-align: left;
+      }
+      .table-container {
+        position: relative;
+        max-height:  300px;
+        width: 500px;
+        overflow: scroll;
+      }
+
+      thead th {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: hsl(20, 50%, 70%);
+      }
+
+      thead th:first-child {
+        left: 0;
+        z-index: 3;
+      }
+
+      tfoot {
+        position: -webkit-sticky;
+        bottom: 0;
+        z-index: 2;
+      }
+
+      tfoot td {
+        position: sticky;
+        bottom: 0;
+        z-index: 2;
+        background: hsl(20, 50%, 70%);
+      }
+
+      tfoot td:first-child {
+        z-index: 3;
+      }
+
+      tbody {
+        overflow: scroll;
+        height: 200px;
+      }
+
+      /* MAKE LEFT COLUMN FIXEZ */
+      tr > :first-child {
+        position: -webkit-sticky;
+        position: sticky; 
+        background: hsl(180, 50%, 70%);
+        left: 0; 
+      }
+      /* don't do this */
+      tr > :first-child {
+        box-shadow: inset 0px 1px black;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <table>
+      <thead class="table-horizontal-container unfixed-table">
+        <tr><th>Item Name</th>
+        <th>Item Custom Name</th>
+        <th>Price</th>
+        <th>Price Combined</th>
+        <th>Item Moveable</th>
+        <th>Tradehold</th>
+        <th>Combined QTY</th>
+        <th>Item Wear Name</th>
+        <th>Item Paint Wear</th>
+        <th>Item Has Stickers/Patches</th>
+        <th>Stickers</th></tr>
+      </thead>
+      <tr>
+        <td>SSG 08 | Blue Spruce</td>
+        <td></td>
+        <td> &euro;0.01 </td>
+        <td> &euro;0.01 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Battle-Scarred</td>
+        <td>0.451179594</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | BIG | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.01 </td>
+        <td> &euro;0.01 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | Copenhagen Flames | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.01 </td>
+        <td> &euro;0.01 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | Ninjas in Pyjamas | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.01 </td>
+        <td> &euro;0.01 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | FURIA | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.01 </td>
+        <td> &euro;0.02 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Galil AR | Cold Fusion</td>
+        <td></td>
+        <td> &euro;0.06 </td>
+        <td> &euro;0.06 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.099782996</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | BIG (Glitter) | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.08 </td>
+        <td> &euro;0.08 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>AUG | Surveillance</td>
+        <td></td>
+        <td> &euro;0.09 </td>
+        <td> &euro;0.09 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.007284886</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | FaZe Clan | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.09 </td>
+        <td> &euro;0.09 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | Cloud9 | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.11 </td>
+        <td> &euro;0.11 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>M249 | System Lock</td>
+        <td></td>
+        <td> &euro;0.18 </td>
+        <td> &euro;0.18 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.144873053</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | Heroic (Glitter) | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;0.23 </td>
+        <td> &euro;0.23 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>FAMAS | Survivor Z</td>
+        <td></td>
+        <td> &euro;0.33 </td>
+        <td> &euro;0.33 </td>
+        <td>TRUE</td>
+        <td>2022-06-08T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.056821465</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MP7 | Mischief</td>
+        <td></td>
+        <td> &euro;0.34 </td>
+        <td> &euro;0.34 </td>
+        <td>TRUE</td>
+        <td>2022-06-08T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.14732188</td>
+        <td>TRUE</td>
+        <td>Chicken of the Sky</td>
+      </tr>
+      <tr>
+        <td>Tec-9 | Ice Cap</td>
+        <td></td>
+        <td> &euro;0.35 </td>
+        <td> &euro;0.35 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.049284194</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MP9 | Dart</td>
+        <td></td>
+        <td> &euro;0.40 </td>
+        <td> &euro;0.40 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.037265472</td>
+        <td>TRUE</td>
+        <td>Cloud9 | Antwerp 2022;Cloud9 | Antwerp 2022;Cloud9 | Antwerp 
+2022;Cloud9 | Antwerp 2022</td>
+      </tr>
+      <tr>
+        <td>P250 | Nevermore</td>
+        <td></td>
+        <td> &euro;0.70 </td>
+        <td> &euro;0.70 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.007950614</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>AUG | Radiation Hazard</td>
+        <td></td>
+        <td> &euro;0.76 </td>
+        <td> &euro;0.76 </td>
+        <td>TRUE</td>
+        <td>2022-06-08T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.031935051</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sawed-Off | Serenity</td>
+        <td></td>
+        <td> &euro;0.81 </td>
+        <td> &euro;0.81 </td>
+        <td>TRUE</td>
+        <td>2022-06-05T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.145752877</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Dual Berettas | Urban Shock</td>
+        <td></td>
+        <td> &euro;0.85 </td>
+        <td> &euro;0.85 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.113943957</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Glock-18 | Grinder</td>
+        <td></td>
+        <td> &euro;0.86 </td>
+        <td> &euro;0.86 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.100397602</td>
+        <td>TRUE</td>
+        <td>TSM Kinguin | Katowice 2015;TSM Kinguin | Katowice 2015;TSM 
+Kinguin | Katowice 2015;TSM Kinguin | Katowice 2015</td>
+      </tr>
+      <tr>
+        <td>Dual Berettas | Panther</td>
+        <td></td>
+        <td> &euro;0.98 </td>
+        <td> &euro;0.98 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.110042721</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sticker | Cloud9 (Glitter) | Antwerp 2022</td>
+        <td></td>
+        <td> &euro;1.37 </td>
+        <td> &euro;1.37 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>USP-S | Blood Tiger</td>
+        <td></td>
+        <td> &euro;1.94 </td>
+        <td> &euro;1.94 </td>
+        <td>TRUE</td>
+        <td>2022-06-05T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.041531235</td>
+        <td>TRUE</td>
+        <td>FaZe Clan | Atlanta 2017;FaZe Clan | Atlanta 2017;FaZe Clan | 
+Atlanta 2017</td>
+      </tr>
+      <tr>
+        <td>MAG-7 | Core Breach</td>
+        <td></td>
+        <td> &euro;2.17 </td>
+        <td> &euro;2.17 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.133777231</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>M4A1-S | Blood Tiger</td>
+        <td>M4A1-S | Howl</td>
+        <td> &euro;2.30 </td>
+        <td> &euro;2.30 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.103596464</td>
+        <td>TRUE</td>
+        <td>Howling Dawn;Keyd Stars (Holo) | Katowice 2015</td>
+      </tr>
+      <tr>
+        <td>SCAR-20 | Bloodsport</td>
+        <td></td>
+        <td> &euro;2.35 </td>
+        <td> &euro;2.35 </td>
+        <td>TRUE</td>
+        <td>2022-06-10T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Minimal Wear</td>
+        <td>0.138822868</td>
+        <td>FALSE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Desert Eagle | Conspiracy</td>
+        <td>conpir</td>
+        <td> &euro;4.75 </td>
+        <td> &euro;4.75 </td>
+        <td>TRUE</td>
+        <td>2022-06-05T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.024167895</td>
+        <td>TRUE</td>
+        <td>FaZe Clan (Holo) | Stockholm 2021;FaZe Clan (Holo) | Stockholm 
+2021;FaZe Clan (Holo) | Stockholm 2021;FaZe Clan (Holo) | Stockholm 
+2021</td>
+      </tr>
+      <tr>
+        <td>MP9 | Hypnotic</td>
+        <td>Aurora</td>
+        <td> &euro;5.77 </td>
+        <td> &euro;5.77 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.03393504</td>
+        <td>TRUE</td>
+        <td>Silver;Vox Eminor | Katowice 2014</td>
+      </tr>
+      <tr>
+        <td>AWP | Redline</td>
+        <td>–õ–∞–¥–∏—Å–ª–∞–≤ —Å—É–∫–∞ –∫–æ–≤–∞—á</td>
+        <td> &euro;23.39 </td>
+        <td> &euro;23.39 </td>
+        <td>TRUE</td>
+        <td>2022-06-11T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Field-Tested</td>
+        <td>0.211921826</td>
+        <td>TRUE</td>
+        <td>GuardiaN | Boston 2018;GuardiaN | Boston 2018;GuardiaN | 
+Boston 2018;Battle Scarred</td>
+      </tr>
+      <tr>
+        <td>AWP | Neo-Noir</td>
+        <td>ÂêõË°åÁõ¥Âà∞ËìùÊ°•Â§ÑÔºå‰∏ÄËßÅ‰∫ëÂçø‰æøÁà±Áëõ</td>
+        <td> &euro;28.08 </td>
+        <td> &euro;28.08 </td>
+        <td>TRUE</td>
+        <td></td>
+        <td>1</td>
+        <td>Factory New</td>
+        <td>0.064834774</td>
+        <td>TRUE</td>
+        <td>Team Dignitas | Cologne 2014</td>
+      </tr>
+      <tr>
+        <td>‚òÖ Hand Wraps | Leather</td>
+        <td></td>
+        <td> &euro;105.84 </td>
+        <td> &euro;105.84 </td>
+        <td>TRUE</td>
+        <td>2022-06-08T07:00:00.000Z</td>
+        <td>1</td>
+        <td>Field-Tested</td>
+        <td>0.283347726</td>
+        <td>FALSE</td>
+      </tr>
+    </table>
+  </body>
+
+
+</html>
